@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: radius-server
+
+radius:
+    listenAuth: true
+    listenAcct: true
