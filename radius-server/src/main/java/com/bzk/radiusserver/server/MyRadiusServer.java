@@ -74,7 +74,8 @@ public class MyRadiusServer extends RadiusServer {
      */
     @Override
     public RadiusPacket accountingRequestReceived(AccountingRequest accountingRequest, InetSocketAddress client) throws RadiusException {
-        accountingService.dealwithAccountingInfo(accountingRequest,client);
-        return super.accountingRequestReceived(accountingRequest,client);
+        RadiusPacket answer = accountingService.dealwithAccountingInfo(accountingRequest,client);
+        this.copyProxyState(accountingRequest, answer);
+        return answer;
     }
 }

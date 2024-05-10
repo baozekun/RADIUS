@@ -1,10 +1,12 @@
 package com.bzk.radiusserver.service;
 
 import org.tinyradius.packet.AccountingRequest;
+import org.tinyradius.packet.RadiusPacket;
+import org.tinyradius.util.RadiusException;
 
 import java.net.InetSocketAddress;
 
 public interface IAccountingService {
 
-    void dealwithAccountingInfo(AccountingRequest accountingRequest, InetSocketAddress client);
+    RadiusPacket dealwithAccountingInfo(AccountingRequest accountingRequest, InetSocketAddress client) throws RadiusException;
 }
